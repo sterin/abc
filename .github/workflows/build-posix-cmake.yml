@@ -5,8 +5,8 @@ jobs:
   build-posix:
     strategy:
       matrix:
-        os: [macos-latest, ubuntu-latest]
-        use_namespace: [false, true]
+        os: [macos-latest]
+        use_namespace: [false]
 
     runs-on: ${{ matrix.os }}
 
