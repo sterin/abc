@@ -5,7 +5,7 @@ jobs:
   build-posix:
     strategy:
       matrix:
-        os: [macos-12]
+        os: [macos-latest]
         use_namespace: [false]
 
     runs-on: ${{ matrix.os }}
@@ -40,7 +40,7 @@ jobs:
       run: |
         mkdir staging
         cmake --build build | tee /dev/stderr | python xxx.py
-        ls -l /Users/runner/Library/Logs/DiagnosticReports/
+        cp /Users/runner/Library/Logs/DiagnosticReports/*.crash staging/
         echo OK
 
     - name: Upload pacakge artifact
